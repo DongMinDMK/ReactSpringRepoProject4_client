@@ -5,7 +5,8 @@ import Footer from "./component/headerfooter/Footer";
 import Login from "./component/member/Login";
 import Join from "./component/member/Join"
 import KindList from "./component/product/KindList";
-import ProductDetail from "./component/product/ProductDetail"
+import ProductDetail from "./component/product/ProductDetail";
+import CartList from "./component/cart/CartList"
 import "./style/index.css"
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/join" element={<Join></Join>}></Route>
         <Route path="/kindList/:kindNum" element={<KindList></KindList>}></Route>
         <Route path="/productDetail/:pseq" element={<ProductDetail></ProductDetail>}></Route>
+        <Route path="/cartList" element={<CartList></CartList>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

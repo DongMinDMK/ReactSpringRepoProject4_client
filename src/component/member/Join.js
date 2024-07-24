@@ -41,12 +41,15 @@ function Join() {
     }
 
     async function sendMail(){
+        
         if(!email){ 
             return window.alert("이메일을 입력해주세요..");
         }
+        console.log(1);
         try{
+            console.log(2);
             const result = await axios.post("/api/mails/sendMail", null, {params:{email:email}})
-            
+            console.log(result.data);
             if(result.data.message == "OK"){
                 window.alert("이메일이 전송되었습니다. 해당 이메일의 수신내역을 확인하세요.");
                 console.log(`result.data.number : ` + result.data.number);

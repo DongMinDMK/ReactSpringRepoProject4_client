@@ -28,6 +28,26 @@ function ProductDetail() {
     )
 
     function goCart(){
+        if(!loginUser.userid){
+            window.alert("로그인이 필요한 서비스입니다.");
+            navigate("/login");
+            return;
+        }
+
+        axios.post("/api/carts/insertCart", {userid:loginUser.userid, pseq:pseq, quantity:quantity})
+        .then((result)=>{
+            if(result.data.message == "OK"){
+                let res = window.confirm("장바구니에 상품을 추가했어요? 장바구니 리스트로 이동할까요?");
+
+                if(res){
+                    navigate("/cartList");
+                }
+
+            }
+        })
+        .catch((err)=>{
+            console.error(err);
+        })
 
     }
 
