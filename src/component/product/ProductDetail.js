@@ -51,6 +51,26 @@ function ProductDetail() {
 
     }
 
+    async function orderOne(){
+        if(!loginUser.userid){
+            window.alert("로그인이 필요한 서비스입니다.");
+            navigate("/login");
+            return;
+        }else{
+            try{
+                const result = await axios.post("/api/orders/insertOrderOne", null, {params:{userid:loginUser.userid, pseq:product.pseq, quantity:quantity}})
+                let ans = window.confirm("주문이 완료되었습니다. 주문내역으로 이동할까요?");
+                if(ans){
+                    navigate(`/orderList/${result.data.oseq}`);
+                }
+            }catch(err){
+                console.error(err);
+            }
+        }
+        
+
+    }
+
   return (
     <article>
       <SubImg></SubImg>
@@ -82,7 +102,7 @@ function ProductDetail() {
             </div>
             <div className='btns'>
                 <input type="button" value="장바구니에 담기" onClick={()=>{goCart();}}></input>
-                <input type="button" value="즉시 구매"></input>
+                <input type="button" value="즉시 구매" onClick={()=>{orderOne()}}></input>
                 <input type="button" value="메인으로" onClick={()=>{navigate("/")}}></input>
             </div>
         </div>

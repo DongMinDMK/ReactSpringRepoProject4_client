@@ -7,6 +7,9 @@ import Join from "./component/member/Join"
 import KindList from "./component/product/KindList";
 import ProductDetail from "./component/product/ProductDetail";
 import CartList from "./component/cart/CartList"
+import OrderList from "./component/order/OrderList"
+import MyPage from "./component/order/MyPage"
+import OrderAll from "./component/order/OrderAll"
 import "./style/index.css"
 
 function App() {
@@ -20,6 +23,9 @@ function App() {
         <Route path="/kindList/:kindNum" element={<KindList></KindList>}></Route>
         <Route path="/productDetail/:pseq" element={<ProductDetail></ProductDetail>}></Route>
         <Route path="/cartList" element={<CartList></CartList>}></Route>
+        <Route path="/orderList/:oseq" element={<OrderList></OrderList>}></Route>
+        <Route path="/mypage" element={<MyPage></MyPage>}></Route>
+        <Route path="/orderAll" element={<OrderAll></OrderAll>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

@@ -73,7 +73,7 @@ function CartList() {
                 await axios.post("/api/orders/insertOrderDetail", null, {params:{oseq:oseq, cseq:checkList[i]}})
             }
 
-            console.log("여기까지")
+            // console.log("여기까지")
 
             if(window.confirm("주문이 완료되었습니다. 주문리스트로 이동하시겠습니까?")){
                 navigate(`/orderList/${oseq}`)

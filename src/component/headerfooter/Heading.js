@@ -46,7 +46,7 @@ function Heading() {
                 )
             }
             <Link to="/cartList">CART</Link>
-            <Link to="">MYPAGE</Link>
+            <Link to="/mypage">MYPAGE</Link>
             <Link to="">CUSTOMER</Link>
         </div>
       </div>
